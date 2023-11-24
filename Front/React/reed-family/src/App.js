@@ -33,16 +33,18 @@ function App() {
 }
 
 function HomeElement({ element }) {
-  const [currentPictureIndex, setCurrentPictureIndex] = useState(0);
+  const [currentPictureIndex, setCurrentPictureIndex] = useState(0); // Initializes currentPictureIndex to 0
+  const timerInterval = 5000; // milliseconds
 
-  useEffect(() => {
+  // useEffect hook runs after every render, and will re-run if element.list changes
+  useEffect(() => { // Sets up an interval that updates currentPictureIndex every 3 seconds. Index resets to 0 when it reaches the end of list, creating a loop
     const timer = setInterval(() => {
       setCurrentPictureIndex(prevIndex => 
         prevIndex === element.list.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000); // Change image every 3000 milliseconds (3 seconds)
+    }, timerInterval); // Change image every timerInterval amount of milliseconds
 
-    return () => clearInterval(timer); // Clean up the interval on component unmount
+    return () => clearInterval(timer); // Clean up the interval on component unmount, prevents memory leaks
   }, [element.list]);
 
   const currentPictureSrc = require(`${element.list[currentPictureIndex].src}`);
