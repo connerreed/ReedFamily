@@ -1,8 +1,8 @@
 import './App.css';
 
 const elementList = [
-  {id: 1, name: "Pictures"}, // TODO: add picture list to object to display
-  {id: 2, name: "Recipes"}, // TODO: add recipe list to object to display
+  {id: 1, name: "Pictures", link: "#"}, // TODO: add picture list to object to display, and add link to picture landing page
+  {id: 2, name: "Recipes", link: "#"}, // TODO: add recipe list to object to display, and add link to recipe landing page
 ];
 
 function App() {
@@ -20,9 +20,11 @@ function App() {
 
 function HomeElement({element}) {
   return (
-    <div className="HomeElement">
-      <h2>{element.name}</h2>
-    </div>
+    <a href={element.link}>
+      <div className="HomeElement">
+        <h2>{element.name}</h2>
+      </div>
+    </a>
   );
 }
 
