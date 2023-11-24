@@ -1,15 +1,15 @@
 import './App.css';
 
 const pictureList = [
-  {id: 1, src: "imgs/Pictures/FamilyPhoto1.jpg"},
-  {id: 2, src: "imgs/Pictures/FamilyPhoto2.jpg"},
-  {id: 3, src: "imgs/Pictures/FamilyPhoto3.jpg"}
+  {id: 1, src: "./imgs/Pictures/FamilyPhoto1.png"},
+  {id: 2, src: "./imgs/Pictures/FamilyPhoto2.png"},
+  {id: 3, src: "./imgs/Pictures/FamilyPhoto3.png"}
 ];
 
 const recipeList = [
-  {id: 1, src: "imgs/Recipes/Recipe1.jpg"},
-  {id: 2, src: "imgs/Recipes/Recipe2.jpg"},
-  {id: 3, src: "imgs/Recipes/Recipe3.jpg"}
+  {id: 1, src: "./imgs/Recipes/Recipe1.png"},
+  {id: 2, src: "./imgs/Recipes/Recipe2.png"},
+  {id: 3, src: "./imgs/Recipes/Recipe3.png"}
 ];
 
 const elementList = [
@@ -37,7 +37,7 @@ function HomeElement({element}) {
       <div className="HomeElement">
         <ul>
           {element.list.map(picture => (
-            <li key={picture.id}><img src={picture.src} alt="" style={{ width: '100px', height: '100px' }} /></li>
+            <li key={picture.id}><img src={require(`${picture.src}`)} alt="Preview Photo" style={{ width: '100px', height: '100px' }} /></li>
           ))}
         </ul>
         <h2>{element.name}</h2>
