@@ -1,9 +1,22 @@
 import './App.css';
 
-const elementList = [
-  {id: 1, name: "Pictures", link: "#"}, // TODO: add picture list to object to display, and add link to picture landing page
-  {id: 2, name: "Recipes", link: "#"}, // TODO: add recipe list to object to display, and add link to recipe landing page
+const pictureList = [
+  {id: 1, src: "imgs/Pictures/FamilyPhoto1.jpg"},
+  {id: 2, src: "imgs/Pictures/FamilyPhoto2.jpg"},
+  {id: 3, src: "imgs/Pictures/FamilyPhoto3.jpg"}
 ];
+
+const recipeList = [
+  {id: 1, src: "imgs/Recipes/Recipe1.jpg"},
+  {id: 2, src: "imgs/Recipes/Recipe2.jpg"},
+  {id: 3, src: "imgs/Recipes/Recipe3.jpg"}
+];
+
+const elementList = [
+  {id: 1, name: "Pictures", link: "#", list: pictureList}, // TODO: add picture list to object to display, and add link to picture landing page
+  {id: 2, name: "Recipes", link: "#", list: recipeList}, // TODO: add recipe list to object to display, and add link to recipe landing page
+];
+
 
 function App() {
   return (
@@ -22,6 +35,11 @@ function HomeElement({element}) {
   return (
     <a href={element.link}>
       <div className="HomeElement">
+        <ul>
+          {element.list.map(picture => (
+            <li key={picture.id}><img src={picture.src} alt="" style={{ width: '100px', height: '100px' }} /></li>
+          ))}
+        </ul>
         <h2>{element.name}</h2>
       </div>
     </a>
