@@ -32,15 +32,13 @@ function App() {
 }
 
 function HomeElement({element}) {
+  let currPictureList = element.list;
+  let currPictureSrc = currPictureList[0].src;
   return (
     <a href={element.link}>
       <div className="HomeElement">
-        <ul>
-          {element.list.map(picture => (
-            <li key={picture.id}><img src={require(`${picture.src}`)} alt="Preview Photo" style={{ width: '100px', height: '100px' }} /></li>
-          ))}
-        </ul>
-        <h2>{element.name}</h2>
+      <img src={require(`${currPictureSrc}`)} alt="Preview Photo" style={{ width: '100px', height: '100px' }} />
+      <h2>{element.name}</h2>
       </div>
     </a>
   );
